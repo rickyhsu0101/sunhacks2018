@@ -1,0 +1,22 @@
+.hero{
+  width: 100vw;
+  height: auto;
+  filter: grayscale(100%) brightness(150%);
+  position: absolute;
+  top: 50vh;
+  left: auto;
+  transform: translateY(-50%);
+  
+}
+.imgContainer{
+  position: relative;
+}
+@media only screen and (max-width: 1660px){
+  .hero{
+    height: 100vh;
+    width: auto;
+    top: auto;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+}

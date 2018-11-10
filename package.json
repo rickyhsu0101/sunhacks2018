@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/rickyhsu0101/sunhacks2018#readme",
   "dependencies": {
+    "async": "^2.6.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cloudinary": "^1.12.0",
@@ -29,7 +30,10 @@
     "mongoose": "^5.3.11",
     "multer": "^1.4.1",
     "nodemailer": "^4.6.8",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "request": "^2.88.0",
+    "socket.io": "^2.1.1"
   }
 }
