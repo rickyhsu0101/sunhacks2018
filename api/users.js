@@ -93,7 +93,7 @@ router.post('/login', (req, res) => {
               userData.id = user.id;
               //sign jwt token
               jwt.sign(userData, process.env.SECRETKEY, {
-                expiresIn: 36000
+                expiresIn: 360000
               }, (err, token) => {
                 if (err) throw err;
                 return res.json({

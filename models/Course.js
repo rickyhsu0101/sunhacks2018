@@ -9,9 +9,29 @@ const CourseSchema = new Schema({
     type: Number,
     required: true
   },
-  tutors: [{
+  teachers: [{
     type: Schema.Types.ObjectId,
-    ref: "users"
+    ref: 'users'
+  }],
+  tutors: [{
+    student: {
+      type: Schema.Types.ObjectId,
+      ref: "users"
+    },
+    availability: {
+      type: Schema.Types.ObjectId,
+      ref: "availabilities"
+    }
+  }],
+  pending: [{
+    student: {
+      type: Schema.Types.ObjectId,
+      ref: "users"
+    },
+    availability: {
+      type: Schema.Types.ObjectId,
+      ref: "availabilities"
+    }
   }]
 });
 
