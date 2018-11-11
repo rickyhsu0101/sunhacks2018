@@ -16,11 +16,19 @@
     height: auto;
     max-width: 100%;
 }
-/*
-@media screen and (max-width: 480px){
-    .ratio{
-        width: 30%;
-        padding-bottom: 30%;
+
+.mobileVers {
+    display: flex;
+}
+.webVers {
+    display: none;
+}
+@media screen and (min-width: 992px){
+    .mobileVers{
+        width: 100%;
+        display: none;
+    }
+    .webVers{
+        display: block;
     }
 }
-*/

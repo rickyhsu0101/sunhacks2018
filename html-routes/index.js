@@ -51,6 +51,13 @@ router.get("/course/:id", (req, res)=>{
        return res.render("index",obj);
      })
 });
+router.get("/dashboard/teacher", (req, res)=>{
+  let obj={
+    page: "teacher",
+    user: null
+  }
+  return res.render("index", obj);
+})
 router.get("/appointment/approve/:userId/:id", (req, res)=>{
   Appointment.findById(req.params.id)
     .then(appt=>{

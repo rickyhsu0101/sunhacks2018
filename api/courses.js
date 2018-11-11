@@ -5,6 +5,14 @@ const Course = mongoose.model('courses');
 const User = mongoose.model('users');
 const Availability = mongoose.model('availabilities');
 const passport = require("passport");
+const nodemailer = require("nodemailer");
+const sendgridTransport = require("nodemailer-sendgrid-transport");
+const transporter = nodemailer.createTransport(sendgridTransport({
+  auth: {
+    api_user: 'rickyhsu0101',
+    api_key: 'rickyhsu0101!'
+  }
+}));
 router.post("/", passport.authenticate("jwt", {session: false}), (req, res)=>{
   let parameters = {};
   if(req.body.subject){
@@ -53,29 +61,36 @@ router.post("/tutor/request/:courseId", passport.authenticate("jwt", {session: f
   
 });
 router.put("/tutor/approve/:courseId/:studentId", passport.authenticate("jwt", {session: false}), (req, res)=>{
-  Course.findOne({teachers: {$in: [req.user.id]}})
-    .then(course=>{
-      if(!course){
+  Course.find({teachers: {$in: [req.user.id]}})
+    .then(courses=>{
+      if(courses.length == 0){
+        console.log("here");
         return res.status(404).json({
           success: false,
           msg: "teacher not found"
         })
       }
-      if(course.id.toString() != req.params.courseId){
+
+      const c = courses.find(el=>el.id.toString() == req.params.courseId);
+      if(c == undefined){
+         console.log("here 2");
         return res.status(404).json({
           success: false,
           msg: "teacher not found"
         })
       }
-      Course.findOne({pending: {$elemMatch: {student: req.params.studentId}}})
-        .then(course=>{
-          if(!course){
+      Course.find({pending: {$elemMatch: {student: req.params.studentId}}})
+        .then(courses=>{
+          if(courses.length == 0){
+             console.log("here3");
             return res.status(404).json({
               success: false,
               msg: "student not found"
             })
           }
-          if (course.id.toString() != req.params.courseId) {
+          const c = courses.find(el => el.id.toString() == req.params.courseId);
+          if (c == undefined) {
+             console.log("here4");
             return res.status(404).json({
               success: false,
               msg: "teacher not found"
@@ -83,11 +98,11 @@ router.put("/tutor/approve/:courseId/:studentId", passport.authenticate("jwt", {
           }
           const asyncFunctions = [
             (callback)=>{
-              const pendingObj = course.pending.find(elem=>{
+              const pendingObj = c.pending.find(elem=>{
                 return (elem.student.toString()==req.params.studentId);
               })
               Course.findByIdAndUpdate(
-                course.id, 
+                req.params.courseId, 
                 {
                   $pull: {
                     pending: {
@@ -119,12 +134,33 @@ router.put("/tutor/approve/:courseId/:studentId", passport.authenticate("jwt", {
             }
           ];
           async.parallel(asyncFunctions, (err, results)=>{
-            return res.json({
-              success: true
-            })
+            const email = results[1].email;
+            const course = results[0].subject + " " + results[0].number;
+            console.log("here");
+            transporter.sendMail({
+                to: email,
+                from: '"Duragon Tale"<duragontale@gmail.com>',
+                subject: "Tutoring Qualification",
+                text: "You are qualified to tutor for Hamilton High School Peer Tutoring Club",
+                html: `<h1 style = "text-align: center;">Tutoring Approved for ${course}</h1><h2 style = "text-align: center;">Your service has been requested for the following time</h2>`
+              }, function (err, info) {
+                return res.json({
+                  success: true
+                })
+            });
           });
         })
     });
+});
+router.get("/teacher/all", passport.authenticate('jwt', {session: false}), (req, res)=>{
+  Course.find({teachers: {$in: [req.user.id]}})
+  .populate(["tutors.student", "tutors.availability", "pending.student", "pending.availability"])
+  .then(courses=>{
+    return res.json({
+      success: true,
+      courses
+    });
+  })
 });
 router.get("/:id", passport.authenticate("jwt", {session: false}), (req, res)=>{
   Course.findById(req.params.id)

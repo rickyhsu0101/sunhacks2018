@@ -26,13 +26,15 @@
   margin-top: 5px;
 }
 
-.dashboard-sections{
+.dashboard-sections, .dashboard-boxes{
   color: white;
   text-align: center;
   font-size: 1.8em;
   padding: 20px;
 }
-
+.dashboard-boxes{
+  padding: 0;
+}
 .table-entries{
   font-size: 15px;
 }
