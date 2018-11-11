@@ -1,0 +1,46 @@
+#searchTitle{
+  text-align: center;
+  color: white;
+  font-size: 3em;
+  margin-top: 40px;
+}
+.form-group{
+  color: white;
+}
+.form-group > label{
+  font-size: 1.6em;
+}
+.divider{
+  width: 100%;
+  margin: 25px 0; 
+  height: 3px;
+  background-color: white;
+}
+#buttonWrapper{
+  margin: auto;
+  margin-bottom: 50px;
+}
+#buttonRow{
+  margin-top: 20px;
+}
+#results{
+  width: 100%;
+}
+.result{
+  background-color: rgba(0, 0, 0, 0.85);
+  transition: background-color 0.2s linear;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 25px;
+}
+.titleClass{
+  font-size: 3rem;
+}
+#sorry{
+  color: white;
+  text-align: center;
+}
+.result:hover{
+  cursor: pointer;
+  background-color: #002f61;
+}
