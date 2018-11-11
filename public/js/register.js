@@ -21,7 +21,7 @@ $("#registerButton").on("click", function (e) {
         username: $("#username").val(),
         password: $("#password").val(),
         password2: $("#password2").val(),
-        email: $("#email").val()+"@yahoo.com"
+        email: $("#email").val()+"@gmail.com"
       },
       success: function (response, textStatus, jqXHR) {
         console.log(response);
