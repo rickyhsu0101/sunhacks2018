@@ -2,6 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
+ 
+  firstname: {
+    type: String,
+    required: true
+  },
+  lastname: {
+    type: String,
+    required: true
+  },
+
   username: {
     type: String,
     required: true
@@ -31,9 +41,15 @@ const UserSchema = new Schema({
     default: "highschool"
   },
   appointments: [{
-    type: Schema.Types.ObjectId,
-    ref: "appointments"
-  }],
+    appt: {
+      type: Schema.Types.ObjectId,
+      ref: "appointments"
+    },
+    role: {
+      type: String,
+      required: true
+    }
+}],
   courses: [{
     type: Schema.Types.ObjectId,
     ref: "courses"

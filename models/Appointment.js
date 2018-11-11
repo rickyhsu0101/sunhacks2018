@@ -2,7 +2,15 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const AppointmentSchema = new Schema({
   date: {
-    type: Date,
+    type: String,
+    required: true
+  },
+  time: {
+    type: Number,
+    required: true
+  },
+  duration: {
+    type: Number,
     required: true
   },
   location: {
@@ -19,7 +27,23 @@ const AppointmentSchema = new Schema({
   },
   status: {
     type: String,
-    default: "upcoming"
+    default: "pending"
+  },
+  approved: {
+    type: Boolean,
+    default: false
+  },
+  confirmTutor: {
+    type: Boolean,
+    default: false
+  },
+  confirmTutee:{
+    type: Boolean,
+    default: false
+  },
+  course:{
+    type: Schema.Types.ObjectId,
+    ref: "courses"
   },
   feedback:{
     type: Number,

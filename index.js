@@ -48,6 +48,10 @@ app.use(function (req, res, next) {
 //import routes
 app.use("/static", express.static(path.join(__dirname, '/public')));
 const routes = require('./api/index.js');
+app.use("/api/users", routes.users);
+app.use("/api/tests", routes.tests);
+app.use("/api/courses", routes.courses);
+app.use("/api/appointments", routes.appointments);
 //app.use("/api/users", routes.users);
 app.use(require('./html-routes/index'));
 /*
