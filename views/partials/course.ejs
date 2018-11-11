@@ -1,0 +1,195 @@
+<div class="container">
+  <div class="row">
+    <div class="col"style="text-align: right">
+        <h2 id = "courseMain" data-id = "<%=course._id%>"><%= course.subject + " " + course.number %></h2>
+    </div>
+    <div class="col" id = "columnApply">
+      <div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          (Apply for a Tutor Position)
+        </button>
+      </div>
+    </div>
+  </div>
+  <br/>
+    <div class = "container">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h3 class="majorHeading">Teachers:</h3>
+          <div class = "row" id = "teachers">
+            <% for(var i=0; i<course.teachers.length; i++){%>
+              <div class = "col-12 col-sm-6">
+                  <div style="width: 80%; margin: 10px auto;" class="teacherBlock">
+                      <h4><%=course.teachers[i].firstname + " " + course.teachers[i].lastname%></h4>
+                      <h4 class = "otherInfo"><%=course.teachers[i].username%></h4>
+                      <h4 class = "otherInfo"><%=course.teachers[i].email%></h4>
+                  </div>
+              </div>
+            <%}%>
+          </div>
+        </div>
+         <div class="col-12 col-md-6">
+              <div class="form-group">
+                <h3>Tutors Available:</h3>
+                <select class="form-control" id="tutorsAvailable">
+                  <option data-index = "-1">Choose Your Tutor</option>
+                  <%for(var i = 0; i < course.tutors.length; i++){%>
+                    <option data-index="<%=i%>"><%=course.tutors[i].student.firstname +" "+ course.tutors[i].student.lastname%></option>
+                  <%}%>
+                </select>
+              </div>
+              <div class = "row mt-2" id = "displayTimes" style="border: 3px solid black; margin-left: 0; margin-right: 0;" hidden>
+                <div class = "col-6">
+                  <h3 id = "tutorName">Tutor 1</h3>
+                </div>
+                <div class = "col-6">
+                  <h3>Available Times:</h3>
+                  <div class = "row">
+                    <h2>Monday <span id="day-1"></span></h2>
+                  </div>
+                  <div class = "row">
+                    <h2>Tuesday <span id="day-2"></span></h2>
+                  </div>
+                  <div class = "row">
+                    <h2>Wednesday <span id="day-3"></span></h2>
+                  </div>
+                  <div class = "row">
+                    <h2>Thursday <span id="day-4"></span></h2>
+                  </div>
+                  <div class = "row">
+                    <h2>Friday <span id="day-5"></span></h2>
+                  </div>
+                  <div class = "row">
+                    <h2>Saturday <span id="day-6"></span></h2>
+                  </div>
+                  <div class = "row">
+                    <h2>Sunday <span id="day-7"></span></h2>
+                  </div>
+                </div>
+              </div>
+                <div class = "row mt-2" id = "displayTimesAction" hidden>
+                    <button type = "button" class = "btn btn-primary" data-toggle="modal" data-target = "#schedulingModal">
+                        Schedule a meeting with this tutor
+                    </button>
+                    <div class= "modal fade" id= "schedulingModal" tabindex = "-1" role="dialog" aria-labelledby="schedulingModalLabel" aria-hidden="true">
+                        <div class = "modal-dialog" role = "document">
+                            <div class = "modal-content">
+                                <div class = "modal-header">
+                                    <h5 class = "modal-title" id = "schedulingModalLabel">Schedule a Meeting</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class = "modal-body">
+                                    <form>
+                                        <div class = "container">
+                                            <div class = "row">
+                                                <div class = "col">
+                                                    <h4>Requested Time: </h4>
+                                                </div>
+                                                <div class = "col">
+                                                    <select class="form-control" id="reqTime">
+                                                        <option>3:00PM</option>
+                                                        <option>4:00PM</option>
+                                                        <option>5:00PM</option>
+                                                        <option>6:00PM</option>
+                                                        <option>7:00PM</option>
+                                                        <option>8:00PM</option>
+                                                        <option>9:00PM</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div class = "row">
+                                                <div class = "col">
+                                                    <h4>Date: </h4>
+                                                </div>
+                                                <div class = "col">
+                                                    <input type="date" class="form-control form-control-lg" id="date"/>
+                                                </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col">
+                                                <h4>Location: </h4>
+                                              </div>
+                                              <div class = "col">
+                                                <select class="form-control" id="reqLocation">
+                                                  <option>Hamilton High School</option>
+                                                  <option>Starbucks</option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class = "modal-footer">
+                                    <button type = "button" class = "btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type = "button" class = "btn btn-primary" id ="scheduleTime">Schedule</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-Modalledby="exampleModalModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalModal">Tutor Application Form</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-Modal="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                  <div class= "container">
+                      <h5>Time Availabilty</h5>
+                      <div class= "row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="startTimeModal">Start Time: </label>
+                                    <select class="form-control" id="startTimeModal">
+                                            <option data-index="0">3:00PM</option>
+                                            <option data-index="1">4:00PM</option>
+                                            <option data-index="2">5:00PM</option>
+                                            <option data-index="3">6:00PM</option>
+                                            <option data-index="4">7:00PM</option>
+                                            <option data-index="5">8:00PM</option>
+                                            <option data-index="6">9:00PM</option>
+                                          </select>
+                                </div> 
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="endTimeModal">End Time: </label>
+                                    <select class="form-control" id="endTimeModal">
+                                            <option data-index="0">3:00PM</option>
+                                            <option data-index="1">4:00PM</option>
+                                            <option data-index="2">5:00PM</option>
+                                            <option data-index="3">6:00PM</option>
+                                            <option data-index="4">7:00PM</option>
+                                            <option data-index="5">8:00PM</option>
+                                            <option data-index="6">9:00PM</option>
+                                          </select>
+                                </div> 
+                            </div>
+                        </div>
+                        <h5>List all strong points in chosen subject:</h5>
+                        <div class="form-group">
+                          <label for="strongPointsTextArea">Strong points:</label>
+                          <textarea class="form-control" id="strongPointsTextArea" rows="3"></textarea>
+                        </div>
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id ="applyTutor">Apply Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<div id = "dataFromServer" hidden><%=course.toString()%></div>

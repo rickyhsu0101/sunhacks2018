@@ -126,4 +126,19 @@ router.put("/tutor/approve/:courseId/:studentId", passport.authenticate("jwt", {
         })
     });
 });
+router.get("/:id", passport.authenticate("jwt", {session: false}), (req, res)=>{
+  Course.findById(req.params.id)
+    .populate(["tutors.student", "tutors.availability", "pending.student", "pending.availability", "teachers"])
+    .then(course=>{
+      if(!course){
+        return res.status(404).json({
+          msg: "Course not found"
+        })
+      }
+      return res.json({
+        success: true,
+        course
+      });
+    });
+});
 module.exports= router;
