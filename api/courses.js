@@ -142,7 +142,7 @@ router.put("/tutor/approve/:courseId/:studentId", passport.authenticate("jwt", {
                 from: '"Duragon Tale"<duragontale@gmail.com>',
                 subject: "Tutoring Qualification",
                 text: "You are qualified to tutor for Hamilton High School Peer Tutoring Club",
-                html: `<h1 style = "text-align: center;">Tutoring Approved for ${course}</h1><h2 style = "text-align: center;">Your service has been requested for the following time</h2>`
+                html: `<h1 style = "text-align: center;">Tutoring Approved for ${course}</h1><h2 style = "text-align: center;">`
               }, function (err, info) {
                 return res.json({
                   success: true
