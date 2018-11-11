@@ -1,0 +1,12 @@
+#teachers h4{
+    font-size: 0.95rem;
+    color: white;
+    text-align: center;
+}
+.otherInfo{
+    font-size: 0.75rem !important;
+}
+.teacherBlock{
+    background-color: black;
+    padding: 20px;
+}

@@ -61,6 +61,10 @@ const UserSchema = new Schema({
   school: {
     type: String,
     default: "Hamilton High School"
+  },
+  grade: {
+    type: Number,
+    default: 9
   }
 });
 

@@ -24,7 +24,7 @@ router.get("/register", (req, res) => {
   };
   res.render("index", obj);
 })
-router.get("/dashboard/:id", (req, res) => {
+router.get("/dashboard", (req, res) => {
   let obj = {
     page: "dashboard",
     user: null
@@ -37,7 +37,7 @@ router.get("/search", (req, res)=>{
     user: null
   }
   res.render("index", obj);
-})
+});
 router.get("/appointment/approve/:userId/:id", (req, res)=>{
   Appointment.findById(req.params.id)
     .then(appt=>{
