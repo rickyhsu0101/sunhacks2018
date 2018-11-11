@@ -3,6 +3,7 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const Appointment = mongoose.model("appointments");
 const User = mongoose.model("users");
+const Course = mongoose.model("courses");
 router.get("/", (req, res)=>{
   let obj = {
     page: "home",
@@ -37,6 +38,18 @@ router.get("/search", (req, res)=>{
     user: null
   }
   res.render("index", obj);
+});
+router.get("/course/:id", (req, res)=>{
+  let obj = {
+    page: "course",
+    user: null
+  }
+   Course.findById(req.params.id)
+     .populate(["tutors.student", "tutors.availability", "pending.student", "pending.availability", "teachers"])
+     .then(course=>{
+       obj.course = course;
+       return res.render("index",obj);
+     })
 });
 router.get("/appointment/approve/:userId/:id", (req, res)=>{
   Appointment.findById(req.params.id)
