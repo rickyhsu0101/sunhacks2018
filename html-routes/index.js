@@ -10,6 +10,27 @@ router.get("/", (req, res)=>{
   };
   res.render("index", obj);
 });
+router.get("/login", (req, res)=>{
+  let obj = {
+    page: "login",
+    user: null
+  };
+  res.render("index", obj);
+})
+router.get("/register", (req, res) => {
+  let obj = {
+    page: "register",
+    user: null
+  };
+  res.render("index", obj);
+})
+router.get("/dashboard", (req, res) => {
+  let obj = {
+    page: "dashboard",
+    user: null
+  };
+  res.render("index", obj);
+})
 router.get("/appointment/approve/:userId/:id", (req, res)=>{
   Appointment.findById(req.params.id)
     .then(appt=>{
