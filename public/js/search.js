@@ -65,5 +65,5 @@ if (!authObj) {
 $(document).on("click", ".result", function(){
   console.log("clicked");
   const idString = $(this).attr("data-courseId");
-  window.location.href = "/courses/" + idString;
+  window.location.href = "/course/" + idString;
 })
