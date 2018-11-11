@@ -52,7 +52,7 @@ router.post("/schedule/:courseId/:tutorId", passport.authenticate("jwt", {sessio
                   from: '"Duragon Tale"<duragontale@gmail.com>',
                   subject: "Tutoring Requested",
                   text: "hello",
-                  html: `<h1 style = "text-align: center;">Tutoring Requested for ${course.subject} ${course.number}</h1><h2 style = "text-align: center;">Your service has been requested for the following time</h2><h4>Date: ${appt.date} Duration: ${appt.duration}</h4><h5 style = "text-align: center;"><a href = "http://localhost:5000/appointment/approve/${user.id}/${appt.id}">Approve</a></h5>`
+                  html: `<h1 style = "text-align: center;">Tutoring Requested for ${course.subject} ${course.number}</h1><h2 style = "text-align: center;">Your service has been requested for the following time</h2><h4>Date: ${appt.date} Duration: ${appt.duration}</h4><h5 style = "text-align: center;"><a href = "https://glacial-shelf-36822.herokuapp.com/appointment/approve/${user.id}/${appt.id}">Approve</a></h5>`
                 }, function(err, info){
                   console.log(err);
                   console.log(info);
