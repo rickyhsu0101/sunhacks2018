@@ -126,6 +126,21 @@ router.get('/current', passport.authenticate('jwt', {
       });
     })
 });
+router.get("/current/deep", passport.authenticate('jwt', {session: false}), (req, res)=>{
+  User.findById(req.user.id)
+    .populate({path: "appointments.appt", populate: ["tutor", "tutee", "course"]})
+    .populate("courses")
+    .then(user => {
+      console.log(user);
+      const userObj = user.toObject();
+      delete userObj.password;
+      userObj.id = user.id;
+      return res.json({
+        success: true,
+        user: userObj
+      });
+    })
+})
 // @route   PUT api/users/approve/:userId
 // @desc    approve user by id
 // @access  Private (Admin)
