@@ -1,74 +1,244 @@
 <!DOCTYPE html>
 <html>
     <head>
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel = "stylesheet" href = "../css/general.css">
+        <link rel = "stylesheet" href = "../css/course.css">
+        
     </head>
-       
-    <body>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Apply for a tutor position
-      </button>
-      
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="exampleModalLabel">Tutor Application Form</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-                <span aria-hidden="true">&times;</span>
-              </button>
+    <body class = "background">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+                <a class="navbar-brand" href="#">HHS Tutoring</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-Modal="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li class="nav-item">
+                   <a class="nav-link" href="#">Home</a>
+                 </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Search</a>
+                  </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="#">Login</a>
+                 </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="#">Register</a>
+                </li>
+                </ul>
+              </div>
+          </nav>
+        <br>
+           
+        <div class="container">
+            <div class="row">
+                <div class="col"style="text-align: right">
+                    <h2>CSE 120</h2>
+                </div>
+                <div class="col">
+                    <!-- Button trigger modal -->
+            <div >
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Apply for a Tutor Position
+                </button>
             </div>
-            <div class="modal-body">
-              <form>
-                  <div class= "container">
-                      <h5>Time Availabilty</h5>
-                      <div class= "row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="startTimeLabel">Start Time: </label>
-                                    <select class="form-control" id="startTimeLabel">
-                                            <option>3:00PM</option>
-                                            <option>4:00PM</option>
-                                            <option>5:00PM</option>
-                                            <option>6:00PM</option>
-                                            <option>7:00PM</option>
-                                            <option>8:00PM</option>
-                                            <option>9:00PM</option>
-                                          </select>
-                                </div> 
+            
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-Modalledby="exampleModalModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="exampleModalModal">Tutor Application Form</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-Modal="Close"></button>
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                      <div class= "container">
+                          <h5>Time Availabilty</h5>
+                          <div class= "row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <Modal for="startTimeModal">Start Time: </Modal>
+                                        <select class="form-control" id="startTimeModal">
+                                                <option>3:00PM</option>
+                                                <option>4:00PM</option>
+                                                <option>5:00PM</option>
+                                                <option>6:00PM</option>
+                                                <option>7:00PM</option>
+                                                <option>8:00PM</option>
+                                                <option>9:00PM</option>
+                                              </select>
+                                    </div> 
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <Modal for="endTimeModal">End Time: </Modal>
+                                        <select class="form-control" id="endTimeModal">
+                                                <option>3:00PM</option>
+                                                <option>4:00PM</option>
+                                                <option>5:00PM</option>
+                                                <option>6:00PM</option>
+                                                <option>7:00PM</option>
+                                                <option>8:00PM</option>
+                                                <option>9:00PM</option>
+                                              </select>
+                                    </div> 
+                                </div>
                             </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="endTimeLabel">End Time: </label>
-                                    <select class="form-control" id="endTimeLabel">
-                                            <option>3:00PM</option>
-                                            <option>4:00PM</option>
-                                            <option>5:00PM</option>
-                                            <option>6:00PM</option>
-                                            <option>7:00PM</option>
-                                            <option>8:00PM</option>
-                                            <option>9:00PM</option>
-                                          </select>
-                                </div> 
+                            <h5>List all strong points in chosen subject:</h5>
+                            <div class="form-group">
+                                    <Modal for="strongPointsTextArea">Strong points:</Modal>
+                                    <textarea class="form-control" id="strongPointsTextArea" rows="3"></textarea>
                             </div>
-                        </div>
-                        <h5>List all strong points in subject:</h5>
-                        <div class="form-group">
-                                <label for="strongPointsTextArea">Strong points:</label>
-                                <textarea class="form-control" id="strongPointsTextArea" rows="3"></textarea>
-                        </div>
-                  </div>
-              </form>
+                      </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Apply Now</button>
+                 </div>
+                </div>
+             </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Apply Now</button>
             </div>
-          </div>
         </div>
-      </div>
+        </div>
+        <br>
+    <div class = "container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <!--
+                    <div class="form-group">
+                        <Modal for="teacherListModal">Teachers:</Modal>
+                        <textarea class= "form-control" id="teacherListModal" rows="3" readonly>
+                            Add teacher information here
+                            Name: Professor Hartin
+                            Education: ASU
+                        </textarea>
+                    </div>
+                -->
+                <h3>Teachers:</h3>
+                <div class = "row" id = "teachers">
+                    <div class = "col-12 col-sm-6">
+                        <div style="width: 80%; margin: 10px auto;" class="teacherBlock">
+                            <h4>Professor Hartin</h4>
+                            <h4 class = "otherInfo">hartin111</h4>
+                            <h4 class = "otherInfo">hartin@aol.com</h4>
+                        </div>
+                        
+                    </div>
+                    <div class = "col-12 col-sm-6">
+                        <div style="width: 80%; margin: 10px auto;" class="teacherBlock">
+                            <h4>Professor Nakamura</h4>
+                            <h4 class = "otherInfo">nakamura123</h4>
+                            <h4 class = "otherInfo">nakamura@aol.com</h4>
+                        </div>
+                    </div>
+                    <div class = "col-12 col-sm-6">
+                        <div style="width: 80%; margin: 10px auto;" class="teacherBlock">
+                            <h4>Professor Chen</h4>
+                            <h4 class = "otherInfo">recursionchen</h4>
+                            <h4 class = "otherInfo">recursion@aol.com</h4>
+                        </div>
+                    </div>
+                    <div class = "col-12 col-sm-6">
+                        <div style="width: 80%; margin: 10px auto;" class="teacherBlock">
+                            <h4>Professor Trump</h4>
+                            <h4 class = "otherInfo">realDonaldTrump</h4>
+                            <h4 class = "otherInfo">MAGA@aol.com</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <h3>Tutors Available:</h3>
+                    <select class="form-control" id="tutorsAvailable">
+                        <option>Tutor 1</option>
+                        <option>Tutor 2</option>
+                        <option>Tutor 3</option>
+                    </select>
+                </div>
+                <div class = "row mt-2" style="border: 3px solid black; margin-left: 0; margin-right: 0;">
+                    <div class = "col-6">
+                        <h3>Tutor 1</h3>
+                        <div class = "row">
+                            <!--Add profile picture-->
+                        </div>
+                        <div class = "row">
+                            <!--Add bio?-->
+                        </div>
+                    </div>
+                    <div class = "col-6">
+                        <h3>Available Times:</h3>
+                        <div class = "row">
+                            <h4>3:00PM-6:00PM</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class = "row mt-2">
+                    <button type = "button" class = "btn btn-primary" data-toggle="modal" data-target = "#schedulingModal">
+                        Schedule a meeting with this tutor
+                    </button>
+                    <div class= "modal fade" id= "schedulingModal" tabindex = "-1" role="dialog" aria-labelledby="schedulingModalLabel" aria-hidden="true">
+                        <div class = "modal-dialog" role = "document">
+                            <div class = "modal-content">
+                                <div class = "modal-header">
+                                    <h5 class = "modal-title" id = "schedulingModalLabel">Schedule a Meeting</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class = "modal-body">
+                                    <form>
+                                        <div class = "container">
+                                            <div class = "row">
+                                                <div class = "col">
+                                                    <h4>Requested Time: </h4>
+                                                </div>
+                                                <div class = "col">
+                                                    <select class="form-control" id="reqTime">
+                                                        <option>3:00PM</option>
+                                                        <option>4:00PM</option>
+                                                        <option>5:00PM</option>
+                                                        <option>6:00PM</option>
+                                                        <option>7:00PM</option>
+                                                        <option>8:00PM</option>
+                                                        <option>9:00PM</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class = "row">
+                                                <div class = "col">
+                                                    <h4>Date: </h4>
+                                                </div>
+                                                <div class = "col">
+                                                    <input type="date" class="form-control form-control-lg" id="date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class = "modal-footer">
+                                    <button type = "button" class = "btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type = "button" class = "btn btn-primary">Schedule</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
