@@ -24,11 +24,11 @@ function cont(user){
           },
           success: function (response) {
               console.log(response)
-              window.location.href = "/dashboard";
+            //  window.location.href = "/dashboard";
             },
-            error: function (xhr) {
+          error: function (xhr) {
               console.log(xhr.responseText);
-              window.location.href = "/dashboard";
+             // window.location.href = "/dashboard";
             },
           beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", jwt);
@@ -78,11 +78,11 @@ function cont(user){
               },
               success: function(response){
                 console.log(response)
-                window.location.href = "/dashboard";
+                //window.location.href = "/dashboard";
               },
               error: function (xhr) {
                 console.log(xhr.responseText);
-                window.location.href = "/dashboard";
+               // window.location.href = "/dashboard";
               },
               beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", jwt);

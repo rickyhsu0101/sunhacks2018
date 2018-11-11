@@ -61,3 +61,4 @@ app.use(require('./html-routes/index'));
 app.listen(PORT, () => {
   console.log(`App listening on Port: ${PORT}`);
 });
+require("./config/schedule");

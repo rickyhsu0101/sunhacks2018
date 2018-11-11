@@ -39,6 +39,7 @@ router.post("/tutor/request/:courseId", passport.authenticate("jwt", {session: f
   //TODO
   //check if course exists
   //if exists check if user already pending
+  console.log("kkkkk");
   Availability.deleteMany({student: req.user.id})
     .then(()=>{
       let availabilityDoc = {
@@ -48,6 +49,7 @@ router.post("/tutor/request/:courseId", passport.authenticate("jwt", {session: f
       const availabilityInstance = new Availability(availabilityDoc);
       availabilityInstance.save()
         .then(availability=>{
+          console.log(availability);
           Course.findByIdAndUpdate(req.params.courseId, {$push: {pending: {student: req.user.id, availability}}}, {new: true})
             .then(course=>{
               return res.json({
