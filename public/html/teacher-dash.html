@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href = "../css/profile_image.css">
+  <link rel="stylesheet" href = "../css/general.css">
+
+
+</head>
+<body class="background";>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="#">HHS Tutoring</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+    <div class="container-fluid">
+    <!--Profile pic and profile info-->
+        <div class="row" style="margin-top:15px">
+            <div class="col-12 col-sm-3">
+                <br>
+                <div class = "row" >  
+                    <div class = "col-6 col-sm-12">
+                        <div class="ratio img-responsive img-circle" style="background-image: url('../img/landing.jpeg')">
+                        </div>            
+                    </div>
+                    <div class = "col-6 col-sm-12">
+                        <h1 class="dashboard-name">Jim Clark</h1>
+                        <hr>
+                        <div class="text" style="line-height:.5;">
+                            <p>jclark</p>
+                            <p style="font-size:0.6em">Teacher</p>               
+                            <p style="font-size:0.6em">Classes <!--display classes taught here--></p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--Web-version Unapproved Students' section starts here (hidden for mobile)--> 
+            <div class="col-12 col-sm-9 dashboard-sections">
+                <div class="dashboard-boxes" style="padding:10px">
+                    Unapproved Students
+                    <table style="width:100%; border:5px solid black">
+                        <tr style="font-size:15px; border:5px solid black">
+                            <th>First</th>
+                            <th>Last</th> 
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>Approve?</th>
+                        </tr>
+                        <tr class="table-entries">                             
+                            <td>Jill</td>
+                            <td>Smith</td> 
+                            <td>jilleve@yahoo.com</td>
+                            <td>jilleve</td>
+                            <td>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-6" id="yes-button">
+                                            <div class="text-center">
+                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#approval-confirmation" style="width:80%">Yes</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-6" id="no-button">
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#denial-confirmation" style="width:80%;">No</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="table-entries">
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>jacksonsmith@yahoo.com</td>
+                            <td>jacksonsmith</td>
+                            <td>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-6" id="yes-button">
+                                            <div class="text-center">
+                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#approval-confirmation" style="width:80%">Yes</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-6" id="no-button">
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#denial-confirmation" style="width:80%;">No</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+
+<!--Mobile version of Unapproved Students' section (hidden for web-version)-->
+                <div class="card dashboard-boxes" style="margin: auto;">
+                    <div class="card-header">
+                        Unapproved Students
+                        <table style="width:100%">
+                            <p style="border:3px solid black; margin-bottom: 5px"</p>
+                            <tr style="font-size:20px">
+                                <th>First</th>
+                                <th>Last</th> 
+                                <th style="width:40%">View More</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                    <!--Replicate this for # of students-->
+                        <li class="list-group-item background">
+                            <table style="width:100%">
+                                <tr style="font-size:20px">
+                                    <td>First</td>
+                                    <td>Last</td> 
+                                    <td style="width:40%">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#unapproved-student" style="width:50%">
+                                            +
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+
+<!--Web-version Approved students' section starts here (hidden for mobile)-->
+                <div class="dashboard-boxes" style="padding:10px">
+                    Approved Students
+                    <table style="width:100%; border:5px solid black">
+                        <tr style="font-size:15px; border:5px solid black">
+                            <th>First</th>
+                            <th>Last</th> 
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>Revoke</th>
+                        </tr>
+                        <tr class="table-entries">                             
+                            <td>Jill</td>
+                            <td>Smith</td> 
+                            <td>jilleve@yahoo.com</td>
+                            <td>jilleve</td>
+                            <td>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#revoke-confirmation" style="width:80%">Revoke</button>
+                                </div>
+                                </td>
+                            </tr>
+                            <tr class="table-entries">
+                                <td>Eve</td>
+                                <td>Jackson</td>
+                                <td>jacksonsmith@yahoo.com</td>
+                                <td>jacksonsmith</td>
+                                <td>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#revoke-confirmation" style="width:80%">Revoke</button>
+                                    </div>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+                <br>
+
+<!--Mobile version of Approved Students' section (hidden for web-version)-->
+                <div class="card dashboard-boxes" style="margin: auto;">
+                        <div class="card-header">
+                            Approved Students
+                            <table style="width:100%">
+                                <p style="border:3px solid black; margin-bottom: 5px"</p>
+                                <tr style="font-size:20px">
+                                    <th>First</th>
+                                    <th>Last</th> 
+                                    <th style="width:40%">View More</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                        <!--Replicate this for # of students-->
+                            <li class="list-group-item background">
+                                <table style="width:100%">
+                                    <tr style="font-size:20px">
+                                        <td>First</td>
+                                        <td>Last</td> 
+                                        <td style="width:40%">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#approved-student" style="width:50%">
+                                                +
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+   <!--Modal begins here--> 
+
+   <!--Approve modal-->
+   <div class="modal fade" id="approval-confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="approval-confirmation-label">Great!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+               Thanks for approving this request. We'll let them know the good news!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!--Deny Modal-->
+    <div class="modal fade" id="denial-confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="denial-confirmation-label"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               Ok, no problem. There's always another chance.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+   <!--for unapproved students mobile-version-->
+    <div class="modal fade" id="unapproved-student" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Request for Approval</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <table style="width:100%;">
+                        <tr class="table-entries">
+                            <td style="width:50%">First</td>
+                            <td>...<!--insert student first name--></td> 
+                        </tr>
+                        <tr class="table-entries">
+                            <td>Last</td>
+                            <td>...<!--insert student last name--></td> 
+                        </tr>
+                        <tr class="table-entries">
+                            <td>Email</td>
+                            <td>...<!--insert student email--></td> 
+                        </tr>
+                        <tr class="table-entries">
+                            <td>Username</td>
+                            <td>...<!--insert student username--></td> 
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#approval-confirmation" data-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#denial-confirmation" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    <!--Revoke modal-->
+    <div class="modal fade" id="revoke-confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="revoke-confirmation-label"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               Hope things will be better next time. We'll let them know and update their status.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!--For approved students mobile-version-->
+          <div class="modal fade" id="approved-student" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <table style="width:100%;">
+                            <tr class="table-entries">
+                                <td style="width:50%">First</td>
+                                <td>...<!--insert student first name--></td> 
+                            </tr>
+                            <tr class="table-entries">
+                                <td>Last</td>
+                                <td>...<!--insert student last name--></td> 
+                            </tr>
+                            <tr class="table-entries">
+                                <td>Email</td>
+                                <td>...<!--insert student email--></td> 
+                            </tr>
+                            <tr class="table-entries">
+                                <td>Username</td>
+                                <td>...<!--insert student username--></td> 
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#revoke-confirmation" data-dismiss="modal">Revoke</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+ 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
