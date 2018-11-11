@@ -29,8 +29,8 @@
           <a class="nav-link" href="/search">Search</a>
         </li>
         <% if(user){%>
-          <li class="nav-item" style = "display: none;">
-            <a class="nav-link" href="dashboard/<%=user._id%>"><%=user.username%></a>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/<%=user._id%>"><%=user.username%></a>
           </li>
         <%}else{%>
           <li class="nav-item <%= page == 'login'? 'active': ''%>">
@@ -52,6 +52,8 @@
     <%- include ./partials/register.ejs%>
   <%} else if(page == 'dashboard'){%>
     <%- include ./partials/dashboard.ejs%>
+  <%} else if(page == 'search'){%>
+    <%- include ./partials/search.ejs%>
   <%}%>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

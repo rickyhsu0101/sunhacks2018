@@ -24,11 +24,18 @@ router.get("/register", (req, res) => {
   };
   res.render("index", obj);
 })
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard/:id", (req, res) => {
   let obj = {
     page: "dashboard",
     user: null
   };
+  res.render("index", obj);
+});
+router.get("/search", (req, res)=>{
+  let obj = {
+    page: "search",
+    user: null
+  }
   res.render("index", obj);
 })
 router.get("/appointment/approve/:userId/:id", (req, res)=>{
