@@ -5,45 +5,64 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
   <link rel = "stylesheet" href ="/static/css/general.css">
-  <link rel="stylesheet" href = "/static/css/<%= page %>.css">
+  <% if(page!= 'register'&& page!='login'){%>
+    <link rel="stylesheet" href = "/static/css/<%= page %>.css">
+  <%}%>
+  <% if(page=='dashboard'){%>
+    <link rel = "stylesheet" href ="/static/css/profile_image.css">
+  <%}%>
 </head>
-<body>
+<body class= "background">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <a class="navbar-brand" href="#">HHS Tutoring</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">HHS Tutoring</a>
+    
     <div class="collapse navbar-collapse" id="navbarToggler">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item <%= page == 'home'? 'active': ''%>">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item <%= page == 'search'? 'active': ''%>">
-          <a class="nav-link" href="#">Search</a>
+          <a class="nav-link" href="/search">Search</a>
         </li>
-        <li class="nav-item <%= page == 'login'? 'active': ''%>">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-        <li class="nav-item <%= page == 'register'? 'active': ''%>">
-          <a class="nav-link" href="#">Register</a>
-        </li>
-        <li class="nav-item" style = "display: none;">
-          <a class="nav-link" href="#"><%= user? user:''%></a>
-        </li>
+        
+          <li class="nav-item">
+            <a class="nav-link <%= page == 'dashboard'? 'active': ''%>" href="/dashboard">Dashboard</a>
+          </li>
+        <% if(page !=='dashboard' && page !=='search' && page!=='course'){%>
+          <li class="nav-item <%= page == 'login'? 'active': ''%>">
+          <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item <%= page == 'register'? 'active': ''%>">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+        <%}%>
+        
       </ul>
     </div>
   </nav>
   <% if(page == 'home'){%>
     <%- include ./partials/home.ejs%>
+  <%} else if(page == 'login'){%>
+    <%- include ./partials/login.ejs%>
+  <%} else if(page == 'register'){%>
+    <%- include ./partials/register.ejs%>
+  <%} else if(page == 'dashboard'){%>
+    <%- include ./partials/dashboard.ejs%>
+  <%} else if(page == 'search'){%>
+    <%- include ./partials/search.ejs%>
   <%}%>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
   <script src="/static/js/auth.js"></script>
   <script src="/static/js/<%= page %>.js"></script>
 </body>

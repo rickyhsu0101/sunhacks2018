@@ -1,0 +1,22 @@
+.bar{
+  width: 100%;
+  height: 3px;
+  background-color: white;
+}
+.sessions > div{
+  color: white;
+  border: 2px solid white;
+  margin: 20px 0;
+  width: 100%;
+  padding: 20px 0;
+}
+.sessions h3:not(.resTitleText){
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+.sessions h3.resTitleText{
+  font-size: 3.5rem;
+}
+#rightSide .row{
+  border-bottom: 1px solid white;
+}

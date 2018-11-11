@@ -13,6 +13,7 @@ const User = mongoose.model('users');
 router.post('/register', (req, res) => {
   //validation: IGNORE
   //check if username/email exists
+  console.log(req.body);
   let errors = {}
   User.findOne({
       $or: [{
@@ -27,9 +28,11 @@ router.post('/register', (req, res) => {
         errors.email = "Email or Username already exists";
         return res.status(400).json(errors);
       } else {
-
+        console.log(req.body);
         const newUser = {
           username: req.body.username,
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
           email: req.body.email,
           password: req.body.password
         };
@@ -78,7 +81,7 @@ router.post('/login', (req, res) => {
     })
     .then(user => {
       if (!user) {
-        errors.username = "Username does not exist";
+        errors.username = "Username  does not exist";
         return res.status(400).json(errors);
       } else {
         //compare password with stored hash
@@ -123,6 +126,21 @@ router.get('/current', passport.authenticate('jwt', {
       });
     })
 });
+router.get("/current/deep", passport.authenticate('jwt', {session: false}), (req, res)=>{
+  User.findById(req.user.id)
+    .populate({path: "appointments.appt", populate: ["tutor", "tutee", "course"]})
+    .populate("courses")
+    .then(user => {
+      console.log(user);
+      const userObj = user.toObject();
+      delete userObj.password;
+      userObj.id = user.id;
+      return res.json({
+        success: true,
+        user: userObj
+      });
+    })
+})
 // @route   PUT api/users/approve/:userId
 // @desc    approve user by id
 // @access  Private (Admin)
